@@ -45,10 +45,10 @@ println(response.getStatusCode())
 assert response.getStatusCode() == 400 : "Status Code Expected 400 and Actuals ${response.getStatusCode()}"
 
 //assert the response body have token and value
-assert !response.getResponseText().contains("token") : "Response does contain 'token' property"
+assert !response.getResponseText().contains("token") : "Response contain 'token' property"
 assert jsonResponse.error != "" : "missing error message"
 assert jsonResponse.error == "Missing password" : "Expected Value 'Missing password' but actuals ${jsonResponse.error}"
 //WS.verifyElementPropertyValue(response, 'token', jsonResponse.token)
 
 println("Response Body: " + response.getResponseText())
-println("get respon token : " + jsonResponse.token)
+println("get respon error : " + jsonResponse.error)
