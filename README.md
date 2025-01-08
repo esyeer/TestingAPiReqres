@@ -46,10 +46,9 @@ Sebelum memulai, pastikan Anda telah menginstal:
 
 ## Struktur Proyek
 Berikut adalah struktur dasar proyek:
-
+```
 /project-name
 │
-
 ├── /Test Cases
 │   ├── Get List User
 │   ├── Get Single User
@@ -58,38 +57,30 @@ Berikut adalah struktur dasar proyek:
 │   ├── Register Successful
 │   └── Register Unsuccessful
 │
-
 ├── /Test Suites
 │   ├── AllTest
 │
-
 ├── /Object Repository
 │   ├── Get User
 │   ├── Register User
 │   ├── Login User
 │
-
 │
 └── /Reports
     ├── HTML Reports
     └── JUnit Reports
-
+```
 
 ## Laporan Test
-Setelah menjalankan test, laporan akan otomatis di-generate dan disimpan di folder /Reports. Anda dapat melihat laporan dalam format HTML atau JUnit untuk analisis lebih lanjut.
+Setelah menjalankan test, laporan akan otomatis di-generate dan disimpan di folder `/Reports`. Anda dapat melihat laporan dalam format HTML atau JUnit untuk analisis lebih lanjut.
 
 ## Kontribusi
 Jika Anda ingin berkontribusi pada proyek ini, silakan ikuti langkah-langkah berikut:
-
 1. Fork repositori ini.
-
-2. Buat branch baru (git checkout -b fitur-baru).
-
-3. Commit perubahan Anda (git commit -m 'Menambahkan fitur baru').
-
-4. Push ke branch (git push origin fitur-baru).
-
-5. Buat Pull Request.
+2. Buat branch baru (`git checkout -b fitur-baru`).
+3. Commit perubahan Anda (`git commit -m 'Menambahkan fitur baru'`).
+4. Push ke branch (`git push origin fitur-baru`).
+5. Buat Pull Request
 
 
 ### Penjelasan:
