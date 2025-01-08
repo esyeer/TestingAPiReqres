@@ -1,0 +1,193 @@
+Suite/Test/Step Name,Browser,Description,Tag,Start time,End time,Duration,Status
+All Test,,,,2025-01-08 22:20:01,2025-01-08 22:20:08,6.803s,PASSED
+,,,,,,,
+Test Cases/Get List User,,,,2025-01-08 22:20:02,2025-01-08 22:20:04,2.550s,PASSED
+request = new com.kms.katalon.core.testobject.RequestObject(),,,,2025-01-08 22:20:02,2025-01-08 22:20:02,0.012s,PASSED
+"request.setRestUrl(""https://reqres.in/api/users?per_page=12"")",,,,2025-01-08 22:20:02,2025-01-08 22:20:02,0.002s,PASSED
+"request.setRestRequestMethod(""GET"")",,,,2025-01-08 22:20:02,2025-01-08 22:20:02,0.001s,PASSED
+response = sendRequest(request),,,,2025-01-08 22:20:02,2025-01-08 22:20:04,2.084s,PASSED
+jsonSlurper = new groovy.json.JsonSlurper(),,,,2025-01-08 22:20:04,2025-01-08 22:20:04,0.007s,PASSED
+jsonResponse = jsonSlurper.parseText(response.getResponseText()),,,,2025-01-08 22:20:04,2025-01-08 22:20:04,0.015s,PASSED
+println(response.getStatusCode()),,,,2025-01-08 22:20:04,2025-01-08 22:20:04,0.004s,PASSED
+assert response.getStatusCode() == 200,,,,2025-01-08 22:20:04,2025-01-08 22:20:04,0.000s,PASSED
+"schema = ""
+{
+	""$schema"": ""https://json-schema.org/draft/2020-12/schema"",
+    ""type"": ""object"",
+    ""properties"": {
+		""page"": { ""type"": ""number"" },
+		""per_page"": { ""type"": ""number"" },
+		""total"": { ""type"": ""number"" },
+		""total_pages"": { ""type"": ""number"" },
+        ""data"": {
+            ""type"": ""array"",
+            ""properties"": {
+                ""id"": { ""type"": ""number"" },
+                ""email"": { ""type"": ""string"", ""format"": ""email"" },
+                ""first_name"": { ""type"": ""string"" },
+                ""last_name"": { ""type"": ""string"" },
+                ""avatar"": { ""type"": ""string"", ""format"": ""uri"" }
+            },
+            ""required"": [""id"", ""email"", ""first_name"", ""last_name"", ""avatar""],
+            ""additionalProperties"": false
+        },
+        ""support"": {
+            ""type"": ""object"",
+            ""properties"": {
+                ""url"": {
+                    ""type"": ""string"",
+                    ""format"": ""uri""
+                },
+                ""text"": { ""type"": ""string"" }
+            },
+            ""required"": [""url"", ""text""],
+            ""additionalProperties"": false
+        }
+    },
+    ""required"": [""data"", ""support""],
+    ""additionalProperties"": false
+}
+""",,,,2025-01-08 22:20:04,2025-01-08 22:20:04,0.002s,PASSED
+"isValid = validateJsonAgainstSchema(response, schema)",,,,2025-01-08 22:20:04,2025-01-08 22:20:04,0.082s,PASSED
+"println(""Response Body: "" + response.getResponseText())",,,,2025-01-08 22:20:04,2025-01-08 22:20:04,0.001s,PASSED
+assert data.size() > 5,,,,2025-01-08 22:20:04,2025-01-08 22:20:04,0.010s,PASSED
+assert support.size() == 2,,,,2025-01-08 22:20:04,2025-01-08 22:20:04,0.001s,PASSED
+assert id.size() == 12,,,,2025-01-08 22:20:04,2025-01-08 22:20:04,0.000s,PASSED
+assert email.size() == 12,,,,2025-01-08 22:20:04,2025-01-08 22:20:04,0.000s,PASSED
+"assert jsonResponse.containsKey(""data"") : ""Response does not contain 'data' property""",,,,2025-01-08 22:20:04,2025-01-08 22:20:04,0.001s,PASSED
+"assert data != null : ""Missing data""",,,,2025-01-08 22:20:04,2025-01-08 22:20:04,0.001s,PASSED
+"assert jsonResponse.containsKey(""support"") : ""Response does not contain 'support' property""",,,,2025-01-08 22:20:04,2025-01-08 22:20:04,0.000s,PASSED
+"assert support != null : ""Missing support""",,,,2025-01-08 22:20:04,2025-01-08 22:20:04,0.001s,PASSED
+,,,,,,,
+Test Cases/Get Single User,,,,2025-01-08 22:20:04,2025-01-08 22:20:05,0.400s,PASSED
+request = new com.kms.katalon.core.testobject.RequestObject(),,,,2025-01-08 22:20:04,2025-01-08 22:20:04,0.000s,PASSED
+"request.setRestUrl(""https://reqres.in/api/users?id=1"")",,,,2025-01-08 22:20:04,2025-01-08 22:20:04,0.000s,PASSED
+"request.setRestRequestMethod(""GET"")",,,,2025-01-08 22:20:04,2025-01-08 22:20:04,0.000s,PASSED
+response = sendRequest(request),,,,2025-01-08 22:20:04,2025-01-08 22:20:05,0.110s,PASSED
+jsonSlurper = new groovy.json.JsonSlurper(),,,,2025-01-08 22:20:05,2025-01-08 22:20:05,0.000s,PASSED
+jsonResponse = jsonSlurper.parseText(response.getResponseText()),,,,2025-01-08 22:20:05,2025-01-08 22:20:05,0.000s,PASSED
+println(response.getStatusCode()),,,,2025-01-08 22:20:05,2025-01-08 22:20:05,0.001s,PASSED
+assert response.getStatusCode() == 200,,,,2025-01-08 22:20:05,2025-01-08 22:20:05,0.000s,PASSED
+"schema = ""
+{
+	""$schema"": ""https://json-schema.org/draft/2020-12/schema"",
+    ""type"": ""object"",
+    ""properties"": {
+        ""data"": {
+            ""type"": ""object"",
+            ""properties"": {
+                ""id"": { ""type"": ""number"" },
+                ""email"": { ""type"": ""string"", ""format"": ""email"" },
+                ""first_name"": { ""type"": ""string"" },
+                ""last_name"": { ""type"": ""string"" },
+                ""avatar"": { ""type"": ""string"", ""format"": ""uri"" }
+            },
+            ""required"": [""id"", ""email"", ""first_name"", ""last_name"", ""avatar""],
+            ""additionalProperties"": false
+        },
+        ""support"": {
+            ""type"": ""object"",
+            ""properties"": {
+                ""url"": {
+                    ""type"": ""string"",
+                    ""format"": ""uri""
+                },
+                ""text"": { ""type"": ""string"" }
+            },
+            ""required"": [""url"", ""text""],
+            ""additionalProperties"": false
+        }
+    },
+    ""required"": [""data"", ""support""],
+    ""additionalProperties"": false
+}
+""",,,,2025-01-08 22:20:05,2025-01-08 22:20:05,0.001s,PASSED
+"isValid = validateJsonAgainstSchema(response, schema)",,,,2025-01-08 22:20:05,2025-01-08 22:20:05,0.009s,PASSED
+"println(""Response Body: "" + jsonResponse)",,,,2025-01-08 22:20:05,2025-01-08 22:20:05,0.001s,PASSED
+assert data.size() == 5,,,,2025-01-08 22:20:05,2025-01-08 22:20:05,0.000s,PASSED
+assert support.size() == 2,,,,2025-01-08 22:20:05,2025-01-08 22:20:05,0.001s,PASSED
+"assert jsonResponse.containsKey(""data"") : ""Response does not contain 'data' property""",,,,2025-01-08 22:20:05,2025-01-08 22:20:05,0.000s,PASSED
+"assert data != """" : ""Missing data""",,,,2025-01-08 22:20:05,2025-01-08 22:20:05,0.001s,PASSED
+assert id == 1,,,,2025-01-08 22:20:05,2025-01-08 22:20:05,0.000s,PASSED
+"assert email == ""george.bluth@reqres.in""",,,,2025-01-08 22:20:05,2025-01-08 22:20:05,0.000s,PASSED
+"assert jsonResponse.containsKey(""support"") : ""Response does not contain 'support' property""",,,,2025-01-08 22:20:05,2025-01-08 22:20:05,0.001s,PASSED
+"assert support != """" : ""Missing support""",,,,2025-01-08 22:20:05,2025-01-08 22:20:05,0.000s,PASSED
+,,,,,,,
+Test Cases/Login Successful,,,,2025-01-08 22:20:05,2025-01-08 22:20:06,1.006s,PASSED
+"baseUrl = findTestObject(""Object Repository/Login User"")",,,,2025-01-08 22:20:05,2025-01-08 22:20:05,0.098s,PASSED
+"requestBody = ""
+{
+    ""email"": ""eve.holt@reqres.in"",
+    ""password"": ""cityslicka""
+}
+""",,,,2025-01-08 22:20:05,2025-01-08 22:20:05,0.001s,PASSED
+baseUrl.setBodyContent(new com.kms.katalon.core.testobject.impl.HttpTextBodyContent(requestBody)),,,,2025-01-08 22:20:05,2025-01-08 22:20:05,0.006s,PASSED
+response = sendRequest(baseUrl),,,,2025-01-08 22:20:05,2025-01-08 22:20:06,0.676s,PASSED
+jsonSlurper = new groovy.json.JsonSlurper(),,,,2025-01-08 22:20:06,2025-01-08 22:20:06,0.001s,PASSED
+jsonResponse = jsonSlurper.parseText(response.getResponseText()),,,,2025-01-08 22:20:06,2025-01-08 22:20:06,0.000s,PASSED
+println(response.getStatusCode()),,,,2025-01-08 22:20:06,2025-01-08 22:20:06,0.001s,PASSED
+assert response.getStatusCode() == 200,,,,2025-01-08 22:20:06,2025-01-08 22:20:06,0.000s,PASSED
+"assert getResponseText().contains(""token"") : ""Response does not contain 'token' property""",,,,2025-01-08 22:20:06,2025-01-08 22:20:06,0.000s,PASSED
+"assert token != """" : ""Missing token""",,,,2025-01-08 22:20:06,2025-01-08 22:20:06,0.000s,PASSED
+"println(""Response Body: "" + response.getResponseText())",,,,2025-01-08 22:20:06,2025-01-08 22:20:06,0.001s,PASSED
+"println(""get respon token : "" + token)",,,,2025-01-08 22:20:06,2025-01-08 22:20:06,0.001s,PASSED
+,,,,,,,
+Test Cases/Login Unsuccessful,,,,2025-01-08 22:20:06,2025-01-08 22:20:06,0.918s,PASSED
+"baseUrl = findTestObject(""Object Repository/Login User"")",,,,2025-01-08 22:20:06,2025-01-08 22:20:06,0.041s,PASSED
+"requestBody = ""
+{
+    ""email"": ""eve.holt@reqres.in"",
+    ""password"": """"
+}
+""",,,,2025-01-08 22:20:06,2025-01-08 22:20:06,0.000s,PASSED
+baseUrl.setBodyContent(new com.kms.katalon.core.testobject.impl.HttpTextBodyContent(requestBody)),,,,2025-01-08 22:20:06,2025-01-08 22:20:06,0.000s,PASSED
+response = sendRequest(baseUrl),,,,2025-01-08 22:20:06,2025-01-08 22:20:06,0.670s,PASSED
+jsonSlurper = new groovy.json.JsonSlurper(),,,,2025-01-08 22:20:06,2025-01-08 22:20:06,0.001s,PASSED
+jsonResponse = jsonSlurper.parseText(response.getResponseText()),,,,2025-01-08 22:20:06,2025-01-08 22:20:06,0.000s,PASSED
+println(response.getStatusCode()),,,,2025-01-08 22:20:06,2025-01-08 22:20:06,0.001s,PASSED
+assert response.getStatusCode() == 400,,,,2025-01-08 22:20:06,2025-01-08 22:20:06,0.000s,PASSED
+"assert !(getResponseText().contains(""token"")) : ""Response contain 'token' property""",,,,2025-01-08 22:20:06,2025-01-08 22:20:06,0.000s,PASSED
+"assert error != """" : ""missing error message""",,,,2025-01-08 22:20:06,2025-01-08 22:20:06,0.001s,PASSED
+"assert error == ""Missing password""",,,,2025-01-08 22:20:06,2025-01-08 22:20:06,0.000s,PASSED
+"println(""Response Body: "" + response.getResponseText())",,,,2025-01-08 22:20:06,2025-01-08 22:20:06,0.000s,PASSED
+"println(""get respon error : "" + error)",,,,2025-01-08 22:20:06,2025-01-08 22:20:06,0.001s,PASSED
+,,,,,,,
+Test Cases/Registrasi Successful,,,,2025-01-08 22:20:07,2025-01-08 22:20:07,0.746s,PASSED
+"baseUrl = findTestObject(""Object Repository/Register User"")",,,,2025-01-08 22:20:07,2025-01-08 22:20:07,0.046s,PASSED
+"requestBody = ""
+{
+    ""email"": ""eve.holt@reqres.in"",
+    ""password"": ""pistol""
+}
+""",,,,2025-01-08 22:20:07,2025-01-08 22:20:07,0.000s,PASSED
+baseUrl.setBodyContent(new com.kms.katalon.core.testobject.impl.HttpTextBodyContent(requestBody)),,,,2025-01-08 22:20:07,2025-01-08 22:20:07,0.000s,PASSED
+response = sendRequest(baseUrl),,,,2025-01-08 22:20:07,2025-01-08 22:20:07,0.502s,PASSED
+jsonSlurper = new groovy.json.JsonSlurper(),,,,2025-01-08 22:20:07,2025-01-08 22:20:07,0.001s,PASSED
+jsonResponse = jsonSlurper.parseText(response.getResponseText()),,,,2025-01-08 22:20:07,2025-01-08 22:20:07,0.000s,PASSED
+println(response.getStatusCode()),,,,2025-01-08 22:20:07,2025-01-08 22:20:07,0.001s,PASSED
+assert response.getStatusCode() == 200,,,,2025-01-08 22:20:07,2025-01-08 22:20:07,0.000s,PASSED
+"assert getResponseText().contains(""id"") : ""Response does not contain 'id' property""",,,,2025-01-08 22:20:07,2025-01-08 22:20:07,0.001s,PASSED
+"assert getResponseText().contains(""token"") : ""Response does not contain 'token' property""",,,,2025-01-08 22:20:07,2025-01-08 22:20:07,0.000s,PASSED
+"assert token != """" : ""Missing token""",,,,2025-01-08 22:20:07,2025-01-08 22:20:07,0.000s,PASSED
+"println(""Response Body: "" + response.getResponseText())",,,,2025-01-08 22:20:07,2025-01-08 22:20:07,0.001s,PASSED
+"println(""get respon token : "" + token)",,,,2025-01-08 22:20:07,2025-01-08 22:20:07,0.000s,PASSED
+,,,,,,,
+Test Cases/Registrasi Unsuccessful,,,,2025-01-08 22:20:07,2025-01-08 22:20:08,0.914s,PASSED
+"baseUrl = findTestObject(""Object Repository/Register User"")",,,,2025-01-08 22:20:07,2025-01-08 22:20:08,0.046s,PASSED
+"requestBody = ""
+{
+    ""email"": ""eve.holt@reqres.in"",
+    ""password"": """"
+}
+""",,,,2025-01-08 22:20:08,2025-01-08 22:20:08,0.000s,PASSED
+baseUrl.setBodyContent(new com.kms.katalon.core.testobject.impl.HttpTextBodyContent(requestBody)),,,,2025-01-08 22:20:08,2025-01-08 22:20:08,0.001s,PASSED
+response = sendRequest(baseUrl),,,,2025-01-08 22:20:08,2025-01-08 22:20:08,0.632s,PASSED
+jsonSlurper = new groovy.json.JsonSlurper(),,,,2025-01-08 22:20:08,2025-01-08 22:20:08,0.000s,PASSED
+jsonResponse = jsonSlurper.parseText(response.getResponseText()),,,,2025-01-08 22:20:08,2025-01-08 22:20:08,0.001s,PASSED
+println(response.getStatusCode()),,,,2025-01-08 22:20:08,2025-01-08 22:20:08,0.000s,PASSED
+assert response.getStatusCode() == 400,,,,2025-01-08 22:20:08,2025-01-08 22:20:08,0.000s,PASSED
+"assert !(getResponseText().contains(""id"")) : ""Response contain 'id' property""",,,,2025-01-08 22:20:08,2025-01-08 22:20:08,0.001s,PASSED
+"assert !(getResponseText().contains(""token"")) : ""Response contain 'token' property""",,,,2025-01-08 22:20:08,2025-01-08 22:20:08,0.000s,PASSED
+"assert error == ""Missing password""",,,,2025-01-08 22:20:08,2025-01-08 22:20:08,0.001s,PASSED
+"println(""Response Body: "" + response.getResponseText())",,,,2025-01-08 22:20:08,2025-01-08 22:20:08,0.000s,PASSED
+"println(""get respon error : "" + error)",,,,2025-01-08 22:20:08,2025-01-08 22:20:08,0.001s,PASSED

@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="All Test" time="6.803" tests="6" failures="0" errors="0">
+   <testsuite name="All Test" tests="6" failures="0" errors="0" time="6.803" skipped="0" timestamp="2025-01-08 22:20:01" hostname="ACER - syrhyt" id="Test Suites/All Test">
+      <properties>
+         <property name="deviceName" value=""/>
+         <property name="devicePlatform" value=""/>
+         <property name="logFolder" value="C:\\Users\\ACER\\git\\TestingAPiReqres\\Reports\\20250108_221959\\All Test\\20250108_221959"/>
+         <property name="logFiles" value="C:\\Users\\ACER\\git\\TestingAPiReqres\\Reports\\20250108_221959\\All Test\\20250108_221959\\execution0.log"/>
+         <property name="attachments" value=""/>
+         <property name="hostName" value="ACER - syrhyt"/>
+         <property name="hostAddress" value="192.168.18.127"/>
+         <property name="os" value="Windows 10 64bit"/>
+         <property name="katalonVersion" value="8.6.8.208"/>
+      </properties>
+      <testcase name="Test Cases/Get List User" time="2.55" classname="Test Cases/Get List User" status="PASSED">
+         <system-out><![CDATA[2025-01-08 22:20:02 - [TEST_CASE][PASSED] - Test Cases/Get List User: Test Cases/Get List User
+
+2025-01-08 22:20:02 - [TEST_STEP][PASSED] - request = new com.kms.katalon.core.testobject.RequestObject(): null
+
+2025-01-08 22:20:02 - [TEST_STEP][PASSED] - request.setRestUrl("https://reqres.in/api/users?per_page=12"): null
+
+2025-01-08 22:20:02 - [TEST_STEP][PASSED] - request.setRestRequestMethod("GET"): null
+
+2025-01-08 22:20:02 - [TEST_STEP][PASSED] - response = sendRequest(request): Send request successfully
+
+2025-01-08 22:20:04 - [MESSAGE][INFO] - HAR: C:\Users\ACER\git\TestingAPiReqres\Reports\20250108_221959\All Test\20250108_221959\requests\main\0.har
+
+2025-01-08 22:20:04 - [MESSAGE][PASSED] - Send request successfully
+
+2025-01-08 22:20:04 - [TEST_STEP][PASSED] - jsonSlurper = new groovy.json.JsonSlurper(): null
+
+2025-01-08 22:20:04 - [TEST_STEP][PASSED] - jsonResponse = jsonSlurper.parseText(response.getResponseText()): null
+
+2025-01-08 22:20:04 - [TEST_STEP][PASSED] - println(response.getStatusCode()): null
+
+2025-01-08 22:20:04 - [TEST_STEP][PASSED] - assert response.getStatusCode() == 200: null
+
+2025-01-08 22:20:04 - [TEST_STEP][PASSED] - schema = "
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+		"page": { "type": "number" },
+		"per_page": { "type": "number" },
+		"total": { "type": "number" },
+		"total_pages": { "type": "number" },
+        "data": {
+            "type": "array",
+            "properties": {
+                "id": { "type": "number" },
+                "email": { "type": "string", "format": "email" },
+                "first_name": { "type": "string" },
+                "last_name": { "type": "string" },
+                "avatar": { "type": "string", "format": "uri" }
+            },
+            "required": ["id", "email", "first_name", "last_name", "avatar"],
+            "additionalProperties": false
+        },
+        "support": {
+            "type": "object",
+            "properties": {
+                "url": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "text": { "type": "string" }
+            },
+            "required": ["url", "text"],
+            "additionalProperties": false
+        }
+    },
+    "required": ["data", "support"],
+    "additionalProperties": false
+}
+": null
+
+2025-01-08 22:20:04 - [TEST_STEP][PASSED] - isValid = validateJsonAgainstSchema(response, schema): Validate with JSON Schema successfully
+
+2025-01-08 22:20:04 - [MESSAGE][PASSED] - Validate with JSON Schema successfully
+
+2025-01-08 22:20:04 - [TEST_STEP][PASSED] - println("Response Body: " + response.getResponseText()): null
+
+2025-01-08 22:20:04 - [TEST_STEP][PASSED] - assert data.size() > 5: null
+
+2025-01-08 22:20:04 - [TEST_STEP][PASSED] - assert support.size() == 2: null
+
+2025-01-08 22:20:04 - [TEST_STEP][PASSED] - assert id.size() == 12: null
+
+2025-01-08 22:20:04 - [TEST_STEP][PASSED] - assert email.size() == 12: null
+
+2025-01-08 22:20:04 - [TEST_STEP][PASSED] - assert jsonResponse.containsKey("data") : "Response does not contain 'data' property": null
+
+2025-01-08 22:20:04 - [TEST_STEP][PASSED] - assert data != null : "Missing data": null
+
+2025-01-08 22:20:04 - [TEST_STEP][PASSED] - assert jsonResponse.containsKey("support") : "Response does not contain 'support' property": null
+
+2025-01-08 22:20:04 - [TEST_STEP][PASSED] - assert support != null : "Missing support": null]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Get Single User" time="0.4" classname="Test Cases/Get Single User" status="PASSED">
+         <system-out><![CDATA[2025-01-08 22:20:04 - [TEST_CASE][PASSED] - Test Cases/Get Single User: Test Cases/Get Single User
+
+2025-01-08 22:20:04 - [TEST_STEP][PASSED] - request = new com.kms.katalon.core.testobject.RequestObject(): null
+
+2025-01-08 22:20:04 - [TEST_STEP][PASSED] - request.setRestUrl("https://reqres.in/api/users?id=1"): null
+
+2025-01-08 22:20:04 - [TEST_STEP][PASSED] - request.setRestRequestMethod("GET"): null
+
+2025-01-08 22:20:04 - [TEST_STEP][PASSED] - response = sendRequest(request): Send request successfully
+
+2025-01-08 22:20:05 - [MESSAGE][INFO] - HAR: C:\Users\ACER\git\TestingAPiReqres\Reports\20250108_221959\All Test\20250108_221959\requests\main\1.har
+
+2025-01-08 22:20:05 - [MESSAGE][PASSED] - Send request successfully
+
+2025-01-08 22:20:05 - [TEST_STEP][PASSED] - jsonSlurper = new groovy.json.JsonSlurper(): null
+
+2025-01-08 22:20:05 - [TEST_STEP][PASSED] - jsonResponse = jsonSlurper.parseText(response.getResponseText()): null
+
+2025-01-08 22:20:05 - [TEST_STEP][PASSED] - println(response.getStatusCode()): null
+
+2025-01-08 22:20:05 - [TEST_STEP][PASSED] - assert response.getStatusCode() == 200: null
+
+2025-01-08 22:20:05 - [TEST_STEP][PASSED] - schema = "
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+        "data": {
+            "type": "object",
+            "properties": {
+                "id": { "type": "number" },
+                "email": { "type": "string", "format": "email" },
+                "first_name": { "type": "string" },
+                "last_name": { "type": "string" },
+                "avatar": { "type": "string", "format": "uri" }
+            },
+            "required": ["id", "email", "first_name", "last_name", "avatar"],
+            "additionalProperties": false
+        },
+        "support": {
+            "type": "object",
+            "properties": {
+                "url": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "text": { "type": "string" }
+            },
+            "required": ["url", "text"],
+            "additionalProperties": false
+        }
+    },
+    "required": ["data", "support"],
+    "additionalProperties": false
+}
+": null
+
+2025-01-08 22:20:05 - [TEST_STEP][PASSED] - isValid = validateJsonAgainstSchema(response, schema): Validate with JSON Schema successfully
+
+2025-01-08 22:20:05 - [MESSAGE][PASSED] - Validate with JSON Schema successfully
+
+2025-01-08 22:20:05 - [TEST_STEP][PASSED] - println("Response Body: " + jsonResponse): null
+
+2025-01-08 22:20:05 - [TEST_STEP][PASSED] - assert data.size() == 5: null
+
+2025-01-08 22:20:05 - [TEST_STEP][PASSED] - assert support.size() == 2: null
+
+2025-01-08 22:20:05 - [TEST_STEP][PASSED] - assert jsonResponse.containsKey("data") : "Response does not contain 'data' property": null
+
+2025-01-08 22:20:05 - [TEST_STEP][PASSED] - assert data != "" : "Missing data": null
+
+2025-01-08 22:20:05 - [TEST_STEP][PASSED] - assert id == 1: null
+
+2025-01-08 22:20:05 - [TEST_STEP][PASSED] - assert email == "george.bluth@reqres.in": null
+
+2025-01-08 22:20:05 - [TEST_STEP][PASSED] - assert jsonResponse.containsKey("support") : "Response does not contain 'support' property": null
+
+2025-01-08 22:20:05 - [TEST_STEP][PASSED] - assert support != "" : "Missing support": null]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Login Successful" time="1.006" classname="Test Cases/Login Successful" status="PASSED">
+         <system-out><![CDATA[2025-01-08 22:20:05 - [TEST_CASE][PASSED] - Test Cases/Login Successful: Test Cases/Login Successful
+
+2025-01-08 22:20:05 - [TEST_STEP][PASSED] - baseUrl = findTestObject("Object Repository/Login User"): null
+
+2025-01-08 22:20:05 - [TEST_STEP][PASSED] - requestBody = "
+{
+    "email": "eve.holt@reqres.in",
+    "password": "cityslicka"
+}
+": null
+
+2025-01-08 22:20:05 - [TEST_STEP][PASSED] - baseUrl.setBodyContent(new com.kms.katalon.core.testobject.impl.HttpTextBodyContent(requestBody)): null
+
+2025-01-08 22:20:05 - [TEST_STEP][PASSED] - response = sendRequest(baseUrl): Send request successfully
+
+2025-01-08 22:20:06 - [MESSAGE][INFO] - HAR: C:\Users\ACER\git\TestingAPiReqres\Reports\20250108_221959\All Test\20250108_221959\requests\main\2.har
+
+2025-01-08 22:20:06 - [MESSAGE][PASSED] - Send request successfully
+
+2025-01-08 22:20:06 - [TEST_STEP][PASSED] - jsonSlurper = new groovy.json.JsonSlurper(): null
+
+2025-01-08 22:20:06 - [TEST_STEP][PASSED] - jsonResponse = jsonSlurper.parseText(response.getResponseText()): null
+
+2025-01-08 22:20:06 - [TEST_STEP][PASSED] - println(response.getStatusCode()): null
+
+2025-01-08 22:20:06 - [TEST_STEP][PASSED] - assert response.getStatusCode() == 200: null
+
+2025-01-08 22:20:06 - [TEST_STEP][PASSED] - assert getResponseText().contains("token") : "Response does not contain 'token' property": null
+
+2025-01-08 22:20:06 - [TEST_STEP][PASSED] - assert token != "" : "Missing token": null
+
+2025-01-08 22:20:06 - [TEST_STEP][PASSED] - println("Response Body: " + response.getResponseText()): null
+
+2025-01-08 22:20:06 - [TEST_STEP][PASSED] - println("get respon token : " + token): null]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Login Unsuccessful" time="0.918" classname="Test Cases/Login Unsuccessful" status="PASSED">
+         <system-out><![CDATA[2025-01-08 22:20:06 - [TEST_CASE][PASSED] - Test Cases/Login Unsuccessful: Test Cases/Login Unsuccessful
+
+2025-01-08 22:20:06 - [TEST_STEP][PASSED] - baseUrl = findTestObject("Object Repository/Login User"): null
+
+2025-01-08 22:20:06 - [TEST_STEP][PASSED] - requestBody = "
+{
+    "email": "eve.holt@reqres.in",
+    "password": ""
+}
+": null
+
+2025-01-08 22:20:06 - [TEST_STEP][PASSED] - baseUrl.setBodyContent(new com.kms.katalon.core.testobject.impl.HttpTextBodyContent(requestBody)): null
+
+2025-01-08 22:20:06 - [TEST_STEP][PASSED] - response = sendRequest(baseUrl): Send request successfully
+
+2025-01-08 22:20:06 - [MESSAGE][INFO] - HAR: C:\Users\ACER\git\TestingAPiReqres\Reports\20250108_221959\All Test\20250108_221959\requests\main\3.har
+
+2025-01-08 22:20:06 - [MESSAGE][PASSED] - Send request successfully
+
+2025-01-08 22:20:06 - [TEST_STEP][PASSED] - jsonSlurper = new groovy.json.JsonSlurper(): null
+
+2025-01-08 22:20:06 - [TEST_STEP][PASSED] - jsonResponse = jsonSlurper.parseText(response.getResponseText()): null
+
+2025-01-08 22:20:06 - [TEST_STEP][PASSED] - println(response.getStatusCode()): null
+
+2025-01-08 22:20:06 - [TEST_STEP][PASSED] - assert response.getStatusCode() == 400: null
+
+2025-01-08 22:20:06 - [TEST_STEP][PASSED] - assert !(getResponseText().contains("token")) : "Response contain 'token' property": null
+
+2025-01-08 22:20:06 - [TEST_STEP][PASSED] - assert error != "" : "missing error message": null
+
+2025-01-08 22:20:06 - [TEST_STEP][PASSED] - assert error == "Missing password": null
+
+2025-01-08 22:20:06 - [TEST_STEP][PASSED] - println("Response Body: " + response.getResponseText()): null
+
+2025-01-08 22:20:06 - [TEST_STEP][PASSED] - println("get respon error : " + error): null]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Registrasi Successful" time="0.746" classname="Test Cases/Registrasi Successful" status="PASSED">
+         <system-out><![CDATA[2025-01-08 22:20:07 - [TEST_CASE][PASSED] - Test Cases/Registrasi Successful: Test Cases/Registrasi Successful
+
+2025-01-08 22:20:07 - [TEST_STEP][PASSED] - baseUrl = findTestObject("Object Repository/Register User"): null
+
+2025-01-08 22:20:07 - [TEST_STEP][PASSED] - requestBody = "
+{
+    "email": "eve.holt@reqres.in",
+    "password": "pistol"
+}
+": null
+
+2025-01-08 22:20:07 - [TEST_STEP][PASSED] - baseUrl.setBodyContent(new com.kms.katalon.core.testobject.impl.HttpTextBodyContent(requestBody)): null
+
+2025-01-08 22:20:07 - [TEST_STEP][PASSED] - response = sendRequest(baseUrl): Send request successfully
+
+2025-01-08 22:20:07 - [MESSAGE][INFO] - HAR: C:\Users\ACER\git\TestingAPiReqres\Reports\20250108_221959\All Test\20250108_221959\requests\main\4.har
+
+2025-01-08 22:20:07 - [MESSAGE][PASSED] - Send request successfully
+
+2025-01-08 22:20:07 - [TEST_STEP][PASSED] - jsonSlurper = new groovy.json.JsonSlurper(): null
+
+2025-01-08 22:20:07 - [TEST_STEP][PASSED] - jsonResponse = jsonSlurper.parseText(response.getResponseText()): null
+
+2025-01-08 22:20:07 - [TEST_STEP][PASSED] - println(response.getStatusCode()): null
+
+2025-01-08 22:20:07 - [TEST_STEP][PASSED] - assert response.getStatusCode() == 200: null
+
+2025-01-08 22:20:07 - [TEST_STEP][PASSED] - assert getResponseText().contains("id") : "Response does not contain 'id' property": null
+
+2025-01-08 22:20:07 - [TEST_STEP][PASSED] - assert getResponseText().contains("token") : "Response does not contain 'token' property": null
+
+2025-01-08 22:20:07 - [TEST_STEP][PASSED] - assert token != "" : "Missing token": null
+
+2025-01-08 22:20:07 - [TEST_STEP][PASSED] - println("Response Body: " + response.getResponseText()): null
+
+2025-01-08 22:20:07 - [TEST_STEP][PASSED] - println("get respon token : " + token): null]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Registrasi Unsuccessful" time="0.914" classname="Test Cases/Registrasi Unsuccessful" status="PASSED">
+         <system-out><![CDATA[2025-01-08 22:20:07 - [TEST_CASE][PASSED] - Test Cases/Registrasi Unsuccessful: Test Cases/Registrasi Unsuccessful
+
+2025-01-08 22:20:07 - [TEST_STEP][PASSED] - baseUrl = findTestObject("Object Repository/Register User"): null
+
+2025-01-08 22:20:08 - [TEST_STEP][PASSED] - requestBody = "
+{
+    "email": "eve.holt@reqres.in",
+    "password": ""
+}
+": null
+
+2025-01-08 22:20:08 - [TEST_STEP][PASSED] - baseUrl.setBodyContent(new com.kms.katalon.core.testobject.impl.HttpTextBodyContent(requestBody)): null
+
+2025-01-08 22:20:08 - [TEST_STEP][PASSED] - response = sendRequest(baseUrl): Send request successfully
+
+2025-01-08 22:20:08 - [MESSAGE][INFO] - HAR: C:\Users\ACER\git\TestingAPiReqres\Reports\20250108_221959\All Test\20250108_221959\requests\main\5.har
+
+2025-01-08 22:20:08 - [MESSAGE][PASSED] - Send request successfully
+
+2025-01-08 22:20:08 - [TEST_STEP][PASSED] - jsonSlurper = new groovy.json.JsonSlurper(): null
+
+2025-01-08 22:20:08 - [TEST_STEP][PASSED] - jsonResponse = jsonSlurper.parseText(response.getResponseText()): null
+
+2025-01-08 22:20:08 - [TEST_STEP][PASSED] - println(response.getStatusCode()): null
+
+2025-01-08 22:20:08 - [TEST_STEP][PASSED] - assert response.getStatusCode() == 400: null
+
+2025-01-08 22:20:08 - [TEST_STEP][PASSED] - assert !(getResponseText().contains("id")) : "Response contain 'id' property": null
+
+2025-01-08 22:20:08 - [TEST_STEP][PASSED] - assert !(getResponseText().contains("token")) : "Response contain 'token' property": null
+
+2025-01-08 22:20:08 - [TEST_STEP][PASSED] - assert error == "Missing password": null
+
+2025-01-08 22:20:08 - [TEST_STEP][PASSED] - println("Response Body: " + response.getResponseText()): null
+
+2025-01-08 22:20:08 - [TEST_STEP][PASSED] - println("get respon error : " + error): null]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <system-out><![CDATA[2025-01-08 22:20:01 - [TEST_SUITE][PASSED] - All Test: Test Cases/Registrasi Unsuccessful]]></system-out>
+      <system-err><![CDATA[]]></system-err>
+   </testsuite>
+</testsuites>
